@@ -1,0 +1,125 @@
+{
+  "schedule": {
+    "635": {
+      "N": [
+        {
+          "routeId": "5",
+          "delay": null,
+          "arrivalTime": 1525682052,
+          "departureTime": 1525682052
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525683028,
+          "departureTime": 1525683028
+        },
+        {
+          "routeId": "5",
+          "delay": null,
+          "arrivalTime": 1525683206,
+          "departureTime": 1525683206
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525684230,
+          "departureTime": 1525684230
+        },
+        {
+          "routeId": "5",
+          "delay": null,
+          "arrivalTime": 1525684380,
+          "departureTime": 1525684380
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525685400,
+          "departureTime": 1525685400
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525686090,
+          "departureTime": 1525686090
+        }
+      ],
+      "S": [
+        {
+          "routeId": "5",
+          "delay": null,
+          "arrivalTime": 1525682472,
+          "departureTime": 1525682472
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525682583,
+          "departureTime": 1525682583
+        },
+        {
+          "routeId": "5",
+          "delay": null,
+          "arrivalTime": 1525683221,
+          "departureTime": 1525683221
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525683414,
+          "departureTime": 1525683414
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525683934,
+          "departureTime": 1525683934
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525684650,
+          "departureTime": 1525684650
+        },
+        {
+          "routeId": "6",
+          "delay": null,
+          "arrivalTime": 1525684914,
+          "departureTime": 1525684914
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525685370,
+          "departureTime": 1525685370
+        },
+        {
+          "routeId": "6",
+          "delay": null,
+          "arrivalTime": 1525685550,
+          "departureTime": 1525685550
+        },
+        {
+          "routeId": "4",
+          "delay": null,
+          "arrivalTime": 1525686240,
+          "departureTime": 1525686240
+        },
+        {
+          "routeId": "6",
+          "delay": null,
+          "arrivalTime": 1525686270,
+          "departureTime": 1525686270
+        },
+        {
+          "routeId": "6",
+          "delay": null,
+          "arrivalTime": 1525686960,
+          "departureTime": 1525686960
+        }
+      ]
+    }
+  },
+  "updatedOn": 1525681986
+}

@@ -1,14 +1,20 @@
 const StreamrClient = require('streamr-client');
+const Mta = require('mta-gtfs');
 
 // Ahoy Hacker, fill in this!
-const STREAM_NAME = 'INSERT_STREAM_NAME_HERE';
-
-const API_KEY = process.env.API_KEY
+const STREAM_NAME = 'Subway-setti';
+const API_KEY = 'A_i-1UZjQyKdlTRgBfyPQAe6P93hydSaCCZnn_aKBJtw'
 if (API_KEY === undefined) {
   throw new Error('Must export environment variable API_KEY');
 }
 
+var mta = new Mta({
+    key: '6f5e1eb44ccf481af09af844abf78c28', // only needed for mta.schedule() method
+    feed_id: 1                  // optional, default = 1
+  });
+
 main().catch(console.error);
+
 
 async function main() {
     // Initialize Streamr-Client library
@@ -23,32 +29,26 @@ async function main() {
     console.info("Initialized stream:", stream.id);
 
     // Generate and produce randomized data to Stream
-    await generateEventAndSend(stream, 0);
+    await generateEventAndSend(635, stream, 0);
 }
 
-async function generateEventAndSend(stream, i) {
+async function generateEventAndSend(stationId, stream, i) {
+    const res = await mta.schedule(stationId, 1)
+    let delays = [];
+    let all = [];
+    console.log(res.schedule[stationId].N)
+    res.schedule[stationId].N.forEach(element => {
+        if(element.delay !== null) {
+            delays.push(element)
+        }
+        all.push(element)
+    });
     const msg = {
-        messageNo: i,
-        someString: randomAlphanumericString(256),
-        temperature: Math.random() * 100 - 50,
-        hypeLevel: Math.random() * 100 - 50,
-        moonLevel: Math.random() * 100000 - 50,
-        isMoon: Math.random() > 0.5
-    };
-
-    await stream.produce(msg);
-    console.info('Event sent:', msg);
-
-    // Send next package in 3 seconds
-    setTimeout(generateEventAndSend.bind(null, stream, i + 1), 3 * 1000);
-}
-
-function randomAlphanumericString(len) {
-    let charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let randomString = '';
-    for (let i = 0; i < len; i++) {
-        let randomPoz = Math.floor(Math.random() * charSet.length);
-        randomString += charSet.substring(randomPoz,randomPoz+1);
+        delayPercentage : (delays.length/all.length)/100
     }
-    return randomString;
+    
+    console.log(res)
+    await stream.produce(msg);
+
+    setTimeout(generateEventAndSend.bind(null, stationId, stream, i + 1), 30 * 1000);
 }
